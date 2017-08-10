@@ -10,28 +10,11 @@
 /** Codebase Enviornment */
 define("WP_ENV", "development");  // 'development', 'staging', or 'production'
 
-
-/** Site */
-// define("WP_HOME",    "http://YOURSITEURL");
-// define("WP_SITEURL", "http://YOURSITEURL/wp");
-
 /** Database */
 define("DB_NAME",     "wordpress");
 define("DB_USER",     "wordpress");
 define("DB_PASSWORD", "password");
 define("DB_HOST",     "mysql");
-
-
-
-
-/**
- * Salts - copy and paste here.
- * ----------------------------
- * Run `curl https://api.wordpress.org/secret-key/1.1/salt`
- */
-
-
-
 
 /**
  * Enviornment based definitions
