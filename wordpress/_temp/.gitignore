@@ -8,13 +8,6 @@ app/mu-plugins/*
 !app/mu-plugins/.gitkeep
 !app/mu-plugins/eva.php
 
-# Dotenv
-.env
-.env.*
-!env.example
-.salts
-salts.php
-
 # WordPress
 wp/*
 .htaccess
@@ -26,3 +19,4 @@ composer.lock
 
 # Apollo Config
 wp-config.php
+salts.php

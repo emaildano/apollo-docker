@@ -73,6 +73,74 @@ register_theme_directory(ABSPATH . 'wp-content/themes');
 
 
 /**
+ * Configure privacy settings conditionally
+ * ----------------------------------------
+ * Prevents search engine indexing in `development` and `staging` enviornments
+ *
+ * @since  1.0.0
+*/
+if ( !function_exists( 'EVA_wp_indexing' ) ) {
+
+  function EVA_wp_indexing() {
+
+    if (WP_ENV !== 'production') {
+
+      update_option( 'blog_public', '0' );
+
+    }
+  }
+
+  add_action( 'wp_loaded', 'EVA_wp_indexing' );
+}
+
+
+
+/**
+ * Allow SVG uploads
+ *
+ * @link   https://css-tricks.com/snippets/wordpress/allow-svg-through-wordpress-media-uploader/
+ * @since  1.1.0
+ */
+if ( !function_exists( 'EVA_mime_types' ) ) {
+
+  function EVA_mime_types( $mimes ) {
+
+    $mimes['svg'] = 'image/svg+xml';
+
+    return $mimes;
+
+  }
+
+  add_filter( 'upload_mimes',  'eva_mime_types' );
+
+}
+
+
+
+/**
+ * Fix SVG Thumb Display
+ *
+ * @link   https://css-tricks.com/snippets/wordpress/allow-svg-through-wordpress-media-uploader/
+ * @since  1.1.0
+ */
+if ( !function_exists( 'EVA_fix_svg_thumb_display' ) ) {
+
+  function EVA_fix_svg_thumb_display() {
+    ?>
+      <style type="text/css">
+        td.media-icon img[src$=".svg"], img[src$=".svg"].attachment-post-thumbnail {
+          width: 100% !important;
+          height: auto !important;
+        }
+      </style>
+    <?php
+  }
+
+  add_action( 'admin_head',  'EVA_fix_svg_thumb_display' );
+}
+
+
+/**
  * Autoload MU-Plugins
  * -------------------
  * Brilliant plugin by the roots.io team. Autoloads MU-plugins

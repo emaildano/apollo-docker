@@ -1,15 +1,5 @@
 <?php
 
-/** Start Apollo Config */
-
-// Composer autoloads
-require_once( __DIR__ . '/lib/vendor/autoload.php' ); // Composer autoloads
-
-// Apollo settings & defs
-require_once( 'lib/config/apollo-config.php' );
-
-/** End Apollo Config */
-
 /**
  * APOLLO MODIFIED WP-CONFIG
  * =========================
@@ -20,17 +10,7 @@ require_once( 'lib/config/apollo-config.php' );
 /** Codebase Enviornment */
 define("WP_ENV", "development");  // 'development', 'staging', or 'production'
 
-
-/**
- * URLs
- */
-define('WP_HOME', env('WP_HOME'));
-define('WP_SITEURL', env('WP_SITEURL'));
-
-
-/**
- * DB settings
- */
+/** Database */
 define('DB_NAME', env('DB_NAME'));
 define('DB_USER', env('DB_USER'));
 define('DB_PASSWORD', env('DB_PASSWORD'));
@@ -39,6 +19,11 @@ define('DB_CHARSET', 'utf8mb4');
 define('DB_COLLATE', '');
 $table_prefix = env('DB_PREFIX') ?: 'wp_';
 
+/**
+ * Salts - Via Composer Scripts
+ * ----------------------------
+ */
+require_once( 'salts.php' );
 
 /**
  * Enviornment based definitions
@@ -89,14 +74,33 @@ define( 'DB_COLLATE', '' );
 define( 'DB_PREFIX',  $table_prefix );
 
 
+
+/** Start Apollo Config */
+
+// Composer autoloads
+require_once( __DIR__ . '/lib/vendor/autoload.php' ); // Composer autoloads
+
+// Apollo settings & defs
+require_once( 'lib/config/apollo-config.php' );
+
+/** End Apollo Config */
+
+
 /**
  * Absolute path to the WordPress directory.
  * -----------------------------------------
+ * Setup for Apollo or Standard WP
  *
  * @since  0.1.0
  */
 if ( ! defined( 'ABSPATH' ) ) {
-  define( 'ABSPATH', dirname(__FILE__) . '/wp/' );
+  if ( ! defined( 'IS_APOLLO' ) ) {
+    // Standard WP
+    define('ABSPATH', dirname(__FILE__) . '/');
+  } else {
+    // Apollo WP
+    define( 'ABSPATH', dirname(__FILE__) . '/wp/' );
+  }
 }
 
 /**
@@ -104,9 +108,3 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  */
 require_once( ABSPATH . 'wp-settings.php');            // Boot WP
-
-/**
- * Salts
- * ----------------------------
- * Via `https://api.wordpress.org/secret-key/1.1/salt`
- */

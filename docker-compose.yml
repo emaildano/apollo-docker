@@ -8,10 +8,10 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: ${PASSWORD:-default}
+      MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: wordpress
       MYSQL_USER: wordpress
-      MYSQL_PASSWORD: password
+      MYSQL_PASSWORD: ${PASSWORD:-default}
   mailcatcher:
      image: schickling/mailcatcher
      restart: always
