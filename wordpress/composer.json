@@ -24,13 +24,13 @@
   },
   "config": {
     "preferred-install": "dist",
-    "vendor-dir": "wordpress/lib/vendor/"
+    "vendor-dir": "lib/vendor/"
   },
   "scripts": {
     "pre-update-cmd": [
-      "php -r \"copy('wordpress/lib/config/wp-config-sample.php', 'wordpress/web/wp-config.php');\"",
-      "curl https://api.wordpress.org/secret-key/1.1/salt >> wordpress/web/wp-config.php",
-      "php -r \"if(!file_exists('.env')) { copy('wordpress/lib/config/env.example', 'wordpress/.env'); }\""
+      "php -r \"copy('lib/config/wp-config-sample.php', 'web/wp-config.php');\"",
+      "curl https://api.wordpress.org/secret-key/1.1/salt >> web/wp-config.php",
+      "php -r \"if(!file_exists('.env')) { copy('lib/config/env.example', '.env'); }\""
     ]
   },
   "repositories": [
@@ -61,10 +61,10 @@
   },
   "extra": {
     "installer-paths": {
-      "wordpress/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
-      "wordpress/app/plugins/{$name}/": ["type:wordpress-plugin"],
+      "app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+      "app/plugins/{$name}/": ["type:wordpress-plugin"],
       "./": ["type:wordpress-theme"]
     },
-    "wordpress-install-dir": "wordpress/web/wp"
+    "wordpress-install-dir": "web/wp"
   }
 }
