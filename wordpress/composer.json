@@ -29,8 +29,8 @@
   "scripts": {
     "pre-update-cmd": [
       "php -r \"copy('lib/config/wp-config-sample.php', 'wp-config.php');\"",
-      "curl https://api.wordpress.org/secret-key/1.1/salt >> wp-config.php",
-      "php -r \"if(!file_exists('./../.env')) { copy('lib/config/env.example', './../.env'); }\""
+      "php -r \"if(!file_exists('.env')) { copy('lib/config/env.example', '.env'); }\"",
+      "curl https://api.wordpress.org/secret-key/1.1/salt >> wp-config.php"
     ]
   },
   "repositories": [
