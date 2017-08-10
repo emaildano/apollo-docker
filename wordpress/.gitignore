@@ -16,7 +16,7 @@ app/mu-plugins/*
 salts.php
 
 # WordPress
-wp/*
+web/wp/*
 .htaccess
 
 # Vendor (e.g. Composer)
