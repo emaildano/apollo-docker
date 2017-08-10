@@ -6,7 +6,7 @@
 require_once(dirname(__DIR__) . '/lib/vendor/autoload.php' ); // Composer autoloads
 
 // Apollo settings & defs
-require_once(dirname(__DIR__) . 'lib/config/apollo-config.php' );
+require_once(dirname(__DIR__) . '/lib/config/apollo-config.php' );
 
 /** End Apollo Config */
 
