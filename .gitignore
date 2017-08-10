@@ -26,6 +26,7 @@ node_modules
 sassdoc
 scss-lint-report.xml
 config.codekit
+.env
 
 /data/*
 !/data/.gitkeep

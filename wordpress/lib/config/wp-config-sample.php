@@ -77,7 +77,6 @@ require_once( 'lib/config/apollo-config.php' );
 /** End Apollo Config */
 
 
-
 /**
  * Absolute path to the WordPress directory.
  * -----------------------------------------
