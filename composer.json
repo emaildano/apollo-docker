@@ -65,6 +65,6 @@
       "app/plugins/{$name}/": ["type:wordpress-plugin"],
       "./": ["type:wordpress-theme"]
     },
-    "wordpress-install-dir": "wp"
+    "wordpress-install-dir": "wordpress/wp"
   }
 }
