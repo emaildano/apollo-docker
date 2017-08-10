@@ -12,15 +12,14 @@ define("WP_ENV", "development");  // 'development', 'staging', or 'production'
 
 
 /** Site */
-define("WP_HOME",    "http://YOURSITEURL");
-define("WP_SITEURL", "http://YOURSITEURL/wp");
-
+// define("WP_HOME",    "http://YOURSITEURL");
+// define("WP_SITEURL", "http://YOURSITEURL/wp");
 
 /** Database */
-define("DB_NAME",     "dbname");
-define("DB_USER",     "root");
-define("DB_PASSWORD", "root");
-define("DB_HOST",     "localhost");
+define("DB_NAME",     "wordpress");
+define("DB_USER",     "wordpress");
+define("DB_PASSWORD", "password");
+define("DB_HOST",     "mysql");
 
 
 
