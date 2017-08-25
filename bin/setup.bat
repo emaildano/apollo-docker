@@ -1,6 +1,6 @@
 @echo off
 
-if exist "./wordpress/wp-config.php" (
+if exist "./public/wp-config.php" (
 	echo "WordPress config file found."
 ) else (
 	echo "WordPress config file not found. Installing..."

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -f "./wordpress/composer.lock" ];
+if [ -f "./public/composer.lock" ];
 then
 	echo "Running composer update..."
   docker-compose exec --user root phpfpm composer update
