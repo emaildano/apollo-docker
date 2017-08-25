@@ -59,9 +59,15 @@ services:
       - "./config/certs:/etc/nginx/certs"
       - "./logs/nginx:/var/log/nginx"
     restart: always
-  composer:
-    restart: 'no'
-    image: composer/composer:php7
-    command: install
-    volumes:
-      - ./public:/var/www/html
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    depends_on:
+      - phpfpm
+      - mysql
+    links:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    ports:
+      - '8080:80'
